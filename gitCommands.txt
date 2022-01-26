@@ -4,6 +4,8 @@ When you first start for the day always do a pull in the drone directory
 
 When you want to push changes you've made, add them, commit them, and push them
 
+	git pull		(always pull before you push)
+
 	git add .		(to add all changes made in the directory)
 		OR
 	git add File_Name	(to add changes made on a particular file

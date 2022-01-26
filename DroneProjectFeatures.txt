@@ -1,0 +1,4 @@
+1) UI for attack control
+2) Keyboard control if user decides to take full control over target
+3) OS attack options for user
+4) 
