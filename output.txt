@@ -1,0 +1,16 @@
+battery: 3
+pitch: 0.833
+battery: 3
+pitch: 0.829
+battery: 3
+pitch: 0.811
+battery: 2
+pitch: 0.8
+battery: 2
+pitch: 0.798
+battery: 2
+pitch: 0.822
+battery: 2
+pitch: 0.829
+battery: 2
+pitch: 0.816
