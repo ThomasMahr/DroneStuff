@@ -32,3 +32,4 @@ Other cool commands to know
 
 	git status		(shows if modified files have been staged <green>
 				or not staged yet <red>)
+	git log			(shows a log of all the pushes we have made)
