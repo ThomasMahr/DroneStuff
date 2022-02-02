@@ -2,13 +2,11 @@
 
 node navdataTest.js > output.txt &
 
-while :
-do
-	clear
-	echo "`tail -n 2 output.txt | egrep "battery"`"
-	echo "`tail -n 2 output.txt | egrep "pitch"`"
+	tail -n 4 output.txt | egrep "battery" | > finalValues.py
+	tail -n 4 output.txt | egrep "pitch" | >> finalValues.py
+	tail -n 4 output.txt | egrep "roll" | >> finalValues.py
+	tail -n 4 output.txt | egrep "yaw" | >> finalValues.py
 	sleep 1
-done
 
 
 
