@@ -1,12 +1,12 @@
 var arDrone = require('ar-drone');
 var client = arDrone.createClient();
-client.takeoff();
+//client.takeoff();
 client
 	.after(1000,  function() {
     var keyPressed = false;
-
-    $(document).keydown(keydownListener)
-               .keyup(keyupListener);
+console.log("its working");
+    //$(document).keydown(keydownListener)
+      //         .keyup(keyupListener);
 
     function keydownListener(event) {
 
