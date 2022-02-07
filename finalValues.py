@@ -1,4 +1,5 @@
-Battery = 36
-Pitch = 1.769
-Roll = -8.159
-Yaw = 99.8
+Battery = 59 
+ Pitch = 1.988 
+ Roll = -8.162 
+ Yaw = -61.788 
+

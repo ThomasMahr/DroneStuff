@@ -19,10 +19,6 @@ client.on('navdata', function(d) {
 	if (nowMs - lastNavDataMs > 1000) {
 		lastNavDataMs = nowMs;
 		if (d.demo){
-			/*console.log('battery = ' + d.demo.batteryPercentage);
-			console.log('pitch = ' + d.demo.rotation.pitch);
-			console.log('roll = ' + d.demo.rotation.roll);
-			console.log('yaw = ' + d.demo.rotation.yaw);*/
 			var string = "Battery = ";
 			string += String(d.demo.batteryPercentage);
 			string += "\nPitch = ";
