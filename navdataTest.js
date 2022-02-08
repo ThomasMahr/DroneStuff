@@ -3,15 +3,10 @@ const fs = require('fs');
 var client = arDrone.createClient();
 
 
-//client.on('navdata', console.log);
-//client.on('navdata.demo.batteryPercentage', console.log);
-//client.on('navdata.demo', console.log);
+client.on('navdata', console.log);
 
-/*client.on('navdata', function(navdata) {
-	console.log(navdata.demo.batteryPercentage);
-});*/
-
-
+/*
+//Main script
 var lastNavDataMs = 0;
 
 client.on('navdata', function(d) {
@@ -36,4 +31,4 @@ client.on('navdata', function(d) {
 			})
 		}
 	}
-});
+});*/
