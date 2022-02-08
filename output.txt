@@ -1,9 +1,17 @@
 
-Battery = 51
-Pitch = 2.274
-Roll = -7.765
-Yaw = 166.236
-Battery = 52
-Pitch = 2.278
-Roll = -7.765
-Yaw = 166.172
+Battery = 86
+Pitch = 2.792
+Roll = -7.873
+Yaw = 0.203
+Battery = 87
+Pitch = 2.802
+Roll = -7.873
+Yaw = 0.187
+Battery = 87
+Pitch = 2.766
+Roll = -7.875
+Yaw = 0.169
+Battery = 87
+Pitch = 2.766
+Roll = -7.863
+Yaw = 0.146
