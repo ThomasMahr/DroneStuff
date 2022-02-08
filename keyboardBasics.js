@@ -31,7 +31,7 @@ process.stdin.on('keypress', (chunk, key) => {
 	if (key && key.name == 'q')
 		process.exit();
 	else if (key) {
-		console.log(key.name);
+		console.log("Keypressed: ", key.name);
 	}
 });
 
