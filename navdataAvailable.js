@@ -4,3 +4,5 @@ var client = arDrone.createClient();
 
 
 client.on('navdata', console.log);
+
+//client.on('navdata', console.log(navdata.demo.altitude);

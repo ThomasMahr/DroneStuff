@@ -3,19 +3,21 @@ const fs = require('fs');
 var client = arDrone.createClient();
 
 
-client.on('navdata', console.log);
+//client.on('navdata', console.log);
 
-/*
+
 //Main script
 var lastNavDataMs = 0;
 
 client.on('navdata', function(d) {
 	var nowMs = new Date().getTime();
-	if (nowMs - lastNavDataMs > 1000) {
+	if (nowMs - lastNavDataMs > 500) {
 		lastNavDataMs = nowMs;
 		if (d.demo){
 			var string = "Battery = ";
 			string += String(d.demo.batteryPercentage);
+			string += "\nAltitude = ";
+			string += String(d.demo.altitude);
 			string += "\nPitch = ";
 			string += String(d.demo.rotation.pitch);
 			string += "\nRoll = ";
@@ -31,4 +33,4 @@ client.on('navdata', function(d) {
 			})
 		}
 	}
-});*/
+});

@@ -1,5 +1,6 @@
-Battery = 87 
- Pitch = 2.766 
- Roll = -7.863 
- Yaw = 0.146 
+Battery = 58 
+ Altitude = 0 
+ Pitch = 4.589 
+ Roll = -7.723 
+ Yaw = 13.227 
 
