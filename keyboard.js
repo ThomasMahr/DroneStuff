@@ -33,5 +33,19 @@ process.stdin.on('keypress', (chunk, key) => {
 	else if (key) {
 		console.log("Keypressed: ", key.name);
 	}
+var pitchForward = 'i';
+var pitchBackward = 'k';
+var rollLeft = 'j';
+var rollRight
+var yawLeft
+var yawRight
+var up
+var down
+var takeoff
+var land
+
+	class KeyMapping(object){
+		
+	}
 });
 
