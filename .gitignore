@@ -5,3 +5,4 @@ package-lock.json
 .currentValues.txt
 final.py
 .output.txt
+.__pycache__

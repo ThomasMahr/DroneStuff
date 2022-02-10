@@ -16,7 +16,7 @@ except ModuleNotFoundError:
     time.sleep(.5)
     import final
 
-subprocess.Popen(["node" , "navdataTest.js", "&"])
+subprocess.Popen(["node" , "navdata.js", "&"])
 subprocess.Popen(["./.droneStatus.sh", "{}".format(numVar)])
 
 with output(initial_len=numVar, interval=250) as output_lines:
