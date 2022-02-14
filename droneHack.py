@@ -15,9 +15,22 @@ cols = int(os.popen("tput cols").read())
 print("\n", header.rjust(int(len(header) + int(cols/3)), " "), "\n")
 print(authors.rjust(int(len(authors) + int(cols/4) - 8), " "))
 
-#print("\n\n\nChecking installed software")
-#os.system("./checkInstalled.sh")
+"""
+check if software is installed if the use wishes
+"""
 
+option = input("Check to make sure all software is installed (y/n): ")
+
+if option == 'y' or option == 'Y':
+        print("Checking installed software")
+        os.system("lib/checkInstalled.sh")
+
+choice = -1
+
+
+
+#while choice != 3:
+#    print("")
 
 """
 Find drones in the area to try to connect
