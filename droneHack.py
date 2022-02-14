@@ -10,8 +10,11 @@ os.system("clear")
 header = "\033[1;96m" + "Parrot AR Drone Attack Framework" + "\033[0m"
 authors = "\x1B[3m" + "     Developed for Capitol by Thomas Mahr and Valerie Kehrer" + "\x1B[0m"
 
-print("\n\n\t\t\t\t\t" + header)
-print("\n\t\t\t" + authors)
+cols = int(os.popen("tput cols").read())
+rows = int(os.popen("tput lines").read())
+
+print("\n", header.rjust(int(len(header) + int(cols/3)), " "), "\n")
+print(authors.rjust(int(len(authors) + int(rows/3)) + 7, " "))
 
 
 print("\n\n\nChecking installed software")
