@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 nmap 192.168.1.1 -p 23 | grep telnet > /dev/null 2>&1 #puts the output to /dev/null
 RC=$?
 
@@ -11,7 +10,3 @@ then
 else
 	echo "telnet not found"
 fi
-
-
-
-

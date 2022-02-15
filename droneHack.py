@@ -8,12 +8,10 @@ import os
 os.system("clear")
 
 header = "\033[1;96m" + "Parrot AR Drone Attack Framework" + "\033[0m"
-authors = "\x1B[3m" + "     Developed for Capitol by Thomas Mahr and Valerie Kehrer" + "\x1B[0m"
+authors = "\x1B[3m" + "Developed for Capitol by Thomas Mahr and Valerie Kehrer" + "\x1B[0m"
 
-cols = int(os.popen("tput cols").read())
-
-print("\n", header.rjust(int(len(header) + int(cols/3)), " "), "\n")
-print(authors.rjust(int(len(authors) + int(cols/4) - 8), " "))
+print("\n", header, "\n")
+print(authors, "\n")
 
 os.system("cat picture.txt")
 
@@ -21,7 +19,7 @@ os.system("cat picture.txt")
 check if software is installed if the use wishes
 """
 
-option = input("Check to make sure all software is installed (y/n): ")
+option = input("\nCheck to make sure all software is installed (y/n): ")
 
 if option == 'y' or option == 'Y':
         print("Checking installed software")
