@@ -17,5 +17,6 @@ class KeyMapping(object):
 	Land             = QtCore.Qt.Key.Key_H
 	Emergency        = QtCore.Qt.Key.Key_Space
 
-
+class keyPress():
+    if(
 

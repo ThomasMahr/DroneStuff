@@ -15,6 +15,8 @@ cols = int(os.popen("tput cols").read())
 print("\n", header.rjust(int(len(header) + int(cols/3)), " "), "\n")
 print(authors.rjust(int(len(authors) + int(cols/4) - 8), " "))
 
+os.system("cat picture.txt")
+
 """
 check if software is installed if the use wishes
 """
