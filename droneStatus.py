@@ -19,6 +19,7 @@ except ModuleNotFoundError:
 subprocess.Popen(["node" , "navdata.js", "&"])
 subprocess.Popen(["./.droneStatus.sh", "{}".format(numVar)])
 
+
 with output(initial_len=numVar, interval=250) as output_lines:
     while True:
         importlib.reload(final)

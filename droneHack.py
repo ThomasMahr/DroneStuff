@@ -16,7 +16,7 @@ print(authors, "\n")
 os.system("cat picture.txt")
 
 """
-check if software is installed if the use wishes
+check if software is installed if the user wishes
 """
 
 option = input("\nCheck to make sure all software is installed (y/n): ")
@@ -25,12 +25,18 @@ if option == 'y' or option == 'Y':
         print("Checking installed software")
         os.system("lib/checkInstalled.sh")
 
+
+"""
+Scan for targets,
+find target and connect
+opens up to programmed attacks
+"""
 choice = -1
 
 
+while choice != 99:
+   choice = input("Enter choice: ")
 
-#while choice != 3:
-#    print("")
 
 """
 Find drones in the area to try to connect

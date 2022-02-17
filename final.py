@@ -1,6 +1,5 @@
-Battery = 21
+Battery = 36
 Altitude = 0
-Pitch = 3.165
-Roll = -8.685
-Yaw = 99.249
-
+Pitch = 2.432
+Roll = -8.334
+Yaw = -0.28

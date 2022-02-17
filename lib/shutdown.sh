@@ -1,12 +1,15 @@
 #!/bin/bash
 
-nmap 192.168.1.1 -p 23 | grep telnet > /dev/null 2>&1 #puts the output to /dev/null
+TARGET=$1
+
+echo "Conducting nmap scan of target"
+nmap $TARGET -p 23 -n | grep telnet > /dev/null 2>&1
 RC=$?
 
 if [ $RC -eq 0 ]
 then
-	nc 192.168.1.1 23 < .command.txt > /dev/null 2>&1 #using .command.txt as an input to the terminal
-
+	nc $TARGET 23 < .poweroffCommand.txt > /dev/null 2>&1
+	echo "Found"
 else
-	echo "telnet not found"
+	echo "Telnet not found, aborting..."
 fi
