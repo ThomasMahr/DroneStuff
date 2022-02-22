@@ -4,15 +4,12 @@ INT=`ifconfig | grep "wlan" | cut -d ":" -f 1`
 
 if [ "$INT" = "" ]
 then
-	echo "no wlan interface detected"
+	echo "No wlan interface detected"
 else
-	echo "wireless interface found: $INT"
-	echo "placing into monitor mode"
-	airmon-ng start $INT
+	echo "Wireless interface found: $INT"
+	echo "Placing into monitor mode"
+	airmon-ng start $INT &> /dev/null
 	MON_INT=`ifconfig | grep "wlan" | cut -d ":" -f 1`
-	echo $MON_INT
-	echo "removing from monitorm mode"
-	airmon-ng stop $MON_INT
+	echo "Monitor interface: $MON_INT"
 fi
-
 
