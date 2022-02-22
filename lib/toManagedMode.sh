@@ -11,5 +11,6 @@ else
 	airmon-ng stop $MON_INT &> /dev/null
 	INT=`ifconfig | grep "wlan" | cut -d ":" -f 1`
 	echo "Managed interface: $INT"
+	echo "Man: $INT" > .ints.txt
 fi
 

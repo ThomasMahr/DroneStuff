@@ -11,5 +11,6 @@ else
 	airmon-ng start $INT &> /dev/null
 	MON_INT=`ifconfig | grep "wlan" | cut -d ":" -f 1`
 	echo "Monitor interface: $MON_INT"
+	echo "Mon: $MON_INT" > .ints.txt
 fi
 
