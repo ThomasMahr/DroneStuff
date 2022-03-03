@@ -1,6 +1,7 @@
 #!/bin/bash
 
 RED='\033[1;31m'
+YELLOW='\033[1;33m'
 GREEN='\033[1;32m'
 NO_COLOR='\033[0m'
 
@@ -25,7 +26,7 @@ else
 	then
 		for drone in $DRONE_APS
 		do
-			echo -e "${RED}essid: $drone${NO_COLOR}" >> .dronesFound.txt
+			echo -e "${YELLOW}essid: $drone${NO_COLOR}" >> .dronesFound.txt
 			echo -e "\t${GREEN}chanel: `cat test-01.csv | grep -E $drone | cut -d , -f 4`${NO_COLOR}" >> .dronesFound.txt
 			echo -e "\t${GREEN}bssid: `cat test-01.csv | grep -E $drone | cut -d , -f 1`${NO_COLOR}" >> .dronesFound.txt
 		done

@@ -11,6 +11,11 @@ then
 	echo -e "${BAD}No monitor interface detected${NO_COLOR}"
 	echo "None" > .ints.txt
 else
+	#Comment out if you do not wish to remove auto-connect for other networks
+	#Change to remvoe specific network connections
+	rm /etc/NetworkManager/system-connections/*
+
+
 	echo -e "Monitor interface found: ${GOOD}$MON_INT${NO_COLOR}"
 	echo "Placing into managed mode"
 	airmon-ng stop $MON_INT &> /dev/null
