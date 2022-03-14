@@ -4,7 +4,7 @@
 //
 
 
-/*const readline = require('readline');
+const readline = require('readline');
 const { Readable } = require('stream');
 
 const inStream = new Readable({
@@ -17,8 +17,8 @@ readline.emitKeypressEvents(inStream);
 
 inStream.on('keypress', (...ar) => {
 	console.log(ar);
-});*/
-
+});
+/*
 var readline = require('readline');
 
 readline.emitKeypressEvents(process.stdin);
@@ -57,5 +57,5 @@ var land
 		Takeoff          = QtCore.Qt.Key.Key_Y
 		Land             = QtCore.Qt.Key.Key_H
 	}
-});
+});*/
 
