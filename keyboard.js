@@ -3,7 +3,7 @@
 //
 //
 
-
+/*
 const readline = require('readline');
 const { Readable } = require('stream');
 
@@ -17,7 +17,7 @@ readline.emitKeypressEvents(inStream);
 
 inStream.on('keypress', (...ar) => {
 	console.log(ar);
-});
+});*/
 /*
 var readline = require('readline');
 
@@ -58,8 +58,8 @@ var land
 		Land             = QtCore.Qt.Key.Key_H
 	}
 });*/
-/*
- *var readline = require('readline');
+
+ var readline = require('readline');
 
 readline.emitKeypressEvents(process.stdin);
 
@@ -73,4 +73,14 @@ process.stdin.on('keypress', (chunk, key) => {
         else if (key) {
                 console.log("Keypressed: ", key.name);
         }
-});*/
+        if (key && key.name == 'i')
+                process.exit();
+        else if (key) {
+                console.log("Keypressed: ", key.name );
+        }
+        if (key && key.name == 'k')
+                process.exit();
+        else if (key) {
+                console.log("Keypressed: ", key.name);
+        }
+});
