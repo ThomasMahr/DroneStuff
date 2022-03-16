@@ -6,3 +6,5 @@ package-lock.json
 final.py
 .output.txt
 /__pycache__
+/lib/.ints.txt
+/lib/.dronesFound.txt
