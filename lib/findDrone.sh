@@ -26,9 +26,9 @@ else
 	then
 		for drone in $DRONE_APS
 		do
-			echo -e "${YELLOW}essid: $drone${NO_COLOR}" >> .dronesFound.txt
-			echo -e "\t${GREEN}chanel: `cat test-01.csv | grep -E $drone | cut -d , -f 4`${NO_COLOR}" >> .dronesFound.txt
-			echo -e "\t${GREEN}bssid: `cat test-01.csv | grep -E $drone | cut -d , -f 1`${NO_COLOR}" >> .dronesFound.txt
+			echo -e "${YELLOW}essid: $drone${NO_COLOR}" | sed -e 's/^[[:space:]]*//' >> .dronesFound.txt
+			echo -e "\t${GREEN}chanel: `cat test-01.csv | grep -E $drone | cut -d , -f 4 | sed -e 's/^[[:space:]]*//'`${NO_COLOR}" >> .dronesFound.txt
+			echo -e "\t${GREEN}bssid: `cat test-01.csv | grep -E $drone | cut -d , -f 1 | sed -e 's/^[[:space:]]*//'`${NO_COLOR}" >> .dronesFound.txt
 		done
 	fi
 

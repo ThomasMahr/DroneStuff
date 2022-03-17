@@ -1,1 +1,1 @@
-Mon: wlan0mon
+Man: wlan0
