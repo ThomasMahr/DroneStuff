@@ -5,7 +5,7 @@ YELLOW='\033[1;33m'
 GREEN='\033[1;32m'
 NO_COLOR='\033[0m'
 
-#./toManagedMode.sh
+./toManagedMode.sh
 
 if [ `cat .ints.txt | cut -d ":" -f 2` = "None" ]
 then
