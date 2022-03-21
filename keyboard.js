@@ -58,8 +58,12 @@ var land
 		Land             = QtCore.Qt.Key.Key_H
 	}
 });*/
+var arDrone = require('ar-drone');
+var client = arDrone.createClient();
 
- var readline = require('readline');
+
+
+var readline = require('readline');
 
 readline.emitKeypressEvents(process.stdin);
 
@@ -70,17 +74,42 @@ if (process.stdin.isTTY)
 process.stdin.on('keypress', (chunk, key) => {
         if (key && key.name == 'q')
                 process.exit();
+	else if (key && key.name == 'up'){
+		client.takeoff();
+	}
+	else if (key && key.name == "down"){
+		client.land();
+	}
+/*----------------------left hand control--------------------------*/
+	else if (key && key.name == "w"){
+		client.up();
+	}
+	else if (key && key.name == "s"){
+		client.down();
+	}
+	else if (key && key.name == "d"){
+		client.clockwise();
+	}
+	else if (key && key.name == "a"){
+		client.counterclockwise();
+	}
+/*----------------------right hand control--------------------------*/
+	else if (key && key.name == "i"){
+		client.forward();
+	}
+	else if (key && key.name == "k"){
+		client.back();
+	}
+	else if (key && key.name == "j"){
+		client.left();
+	}
+	else if (key && key.name == "l"){
+		client.right();
+	}	
         else if (key) {
                 console.log("Keypressed: ", key.name);
         }
-        if (key && key.name == 'i')
-                process.exit();
-        else if (key) {
-                console.log("Keypressed: ", key.name );
-        }
-        if (key && key.name == 'k')
-                process.exit();
-        else if (key) {
-                console.log("Keypressed: ", key.name);
-        }
+	
+
+   
 });
