@@ -13,7 +13,7 @@ then
 else
 	#Comment out if you do not wish to remove auto-connect for other networks
 	#Change to remvoe specific network connections
-	rm /etc/NetworkManager/system-connections/*
+	rm /etc/NetworkManager/system-connections/* &> /dev/null
 
 
 	echo -e "Monitor interface found: ${GOOD}$MON_INT${NO_COLOR}"
