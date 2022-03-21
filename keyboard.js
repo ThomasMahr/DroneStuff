@@ -62,7 +62,6 @@ var arDrone = require('ar-drone');
 var client = arDrone.createClient();
 
 
-
 var readline = require('readline');
 
 readline.emitKeypressEvents(process.stdin);
@@ -72,33 +71,35 @@ if (process.stdin.isTTY)
 
 
 process.stdin.on('keypress', (chunk, key) => {
-        if (key && key.name == 'q')
+        if (key && key.name == "q")
                 process.exit();
-	else if (key && key.name == 'up'){
+	else if (key && key.name == "up"){
 		client.takeoff();
 	}
 	else if (key && key.name == "down"){
 		client.land();
 	}
+}
 /*----------------------left hand control--------------------------*/
-	else if (key && key.name == "w"){
+process.stdin.on('keypress', (chunk, key) => {
+	if (key && key.name == "w")
 		client.up();
-	}
 	else if (key && key.name == "s"){
 		client.down();
 	}
 	else if (key && key.name == "d"){
-		client.clockwise();
+		client.clockwise(.5);
 	}
 	else if (key && key.name == "a"){
-		client.counterclockwise();
+		client.counterClockwise(.5);
 	}
+}
 /*----------------------right hand control--------------------------*/
-	else if (key && key.name == "i"){
-		client.forward();
-	}
+process.stdin.on('keypress', (chunk, key) => {
+	if (key && key.name == "i")
+		client.front(.5);
 	else if (key && key.name == "k"){
-		client.back();
+		client.back(.5);
 	}
 	else if (key && key.name == "j"){
 		client.left();
@@ -109,7 +110,5 @@ process.stdin.on('keypress', (chunk, key) => {
         else if (key) {
                 console.log("Keypressed: ", key.name);
         }
-	
-
    
 });
