@@ -79,9 +79,7 @@ process.stdin.on('keypress', (chunk, key) => {
 	else if (key && key.name == "down"){
 		client.land();
 	}
-}
 /*----------------------left hand control--------------------------*/
-process.stdin.on('keypress', (chunk, key) => {
 	if (key && key.name == "w")
 		client.up();
 	else if (key && key.name == "s"){
@@ -93,9 +91,7 @@ process.stdin.on('keypress', (chunk, key) => {
 	else if (key && key.name == "a"){
 		client.counterClockwise(.5);
 	}
-}
 /*----------------------right hand control--------------------------*/
-process.stdin.on('keypress', (chunk, key) => {
 	if (key && key.name == "i")
 		client.front(.5);
 	else if (key && key.name == "k"){
@@ -110,5 +106,4 @@ process.stdin.on('keypress', (chunk, key) => {
         else if (key) {
                 console.log("Keypressed: ", key.name);
         }
-   
 });
