@@ -77,35 +77,37 @@ process.stdin.on('keypress', (chunk, key) => {
                 process.exit();
 	else if (key && key.name == "up"){
 		client.takeoff();
+		client.stop();
 	}
 	else if (key && key.name == "down"){
 		client.land();
 	}
+	else if (key && key.name == "space"){
+		client.stop();
+	}
 /*----------------------left hand control--------------------------*/
 	if (key && key.name == "w")
-		client.up();
+		client.up(.2);
 	else if (key && key.name == "s"){
-		client.down();
+		client.down(.2);
 	}
 	else if (key && key.name == "d"){
-		client.clockwise(.5);
+		client.clockwise(.2);
+
 	}
 	else if (key && key.name == "a"){
-		client.counterClockwise(.5);
+		client.counterClockwise(.2);
 	}
 /*----------------------right hand control--------------------------*/
 	if (key && key.name == "i")
-		client.front(.5);
+		client.front(.2);
 	else if (key && key.name == "k"){
-		client.back(.5);
+		client.back(.2);
 	}
 	else if (key && key.name == "j"){
-		client.left();
+		client.left(.2);
 	}
 	else if (key && key.name == "l"){
-		client.right();
+		client.right(.2);
 	}	
-        else if (key) {
-                console.log("Keypressed: ", key.name);
-        }
 });
