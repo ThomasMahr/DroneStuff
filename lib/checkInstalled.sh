@@ -6,7 +6,7 @@ NPM_AR_DRONE=0
 NPM_READLINE=0
 NPM_FS=0
 PYTHON=0
-PYTHON_REPRINT=0
+PYTHON_TKINTER=0
 WPA_SUP=0
 
 BAD='\033[1;31m'
@@ -76,14 +76,14 @@ else
 	echo -e "${BAD}run 'npm install readline'${NO_COLOR}"
 fi
 
-pip3 list | grep reprint > /dev/null 2>&1
+pip3 list | grep -w tk > /dev/null 2>&1
 RC=$?
 if [ $RC -eq 0 ]
 then
-	PYTHON_REPRINT=1
-	echo -e "${GOOD}reprint python module installed${NO_COLOR}"
+	PYTHON_TKINTER=1
+	echo -e "${GOOD}tkinter python module installed${NO_COLOR}"
 else
-	echo -e "${BAD}run 'pip3 install reprint'${NO_COLOR}"
+	echo -e "${BAD}run 'pip3 install tk'${NO_COLOR}"
 fi
 
 wpa_supplicant -v > /dev/null 2>&1
