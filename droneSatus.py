@@ -8,7 +8,6 @@ import importlib
 from tkinter import *
 
 numVar = 5 #The number of values we want to track
-
 try:
     import final
 except ModuleNotFoundError:
@@ -17,7 +16,7 @@ except ModuleNotFoundError:
     import final
 
 stop = False
-
+    
 def close():
     root.destroy()
 
