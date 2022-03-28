@@ -67,7 +67,7 @@ var readline = require('readline');
 //_________
 const { exec } = require("child_process");
 
-exec("cat dronePic.txt | lolcat -f ; figlet '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDRONEZ!!!' | lolcat -f", (error, stdout, stderr) => {
+exec("cat /home/kali/DroneStuff/textStuff/dronePic.txt | lolcat -f ; figlet '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDRONEZ!!!' | lolcat -f", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;
