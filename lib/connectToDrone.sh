@@ -18,16 +18,30 @@ else
 	echo "Listing the $NUM_DRONES drone[s] in area"
 	for (( i=1; i<=$NUM_DRONES*3; i+=3 ))
 	do
-		echo -e "\t$LIST_NUM: `grep -n essid .dronesFound.txt | grep "$i:" | cut -d ":" -f 3`"
+		ESSID="`grep -n essid .dronesFound.txt | grep "$i:" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`"
+		MAC="`grep -n bssid .dronesFound.txt | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`"
+		echo -e "\t$LIST_NUM: $ESSID ($MAC)"
 		LIST_NUM=`expr $LIST_NUM + 1`
 	done
 	read -p "Select a drone ESSID to target: " TARGET_NUM
 	LINE=$((`expr $TARGET_NUM \* 3` - 2))
 	TARGET_ESSID=`grep -n essid .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`
+	LINE=$((`expr $TARGET_NUM \* 3` - 1))
+	TARGET_MAC=`grep -n bssid .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`
 
 	echo -e "Associating with ${GREEN}$TARGET_ESSID${NO_COLOR} over ${YELLOW}$INT${NO_COLOR}"
-	echo -e "network={\n\tssid="\"$TARGET_ESSID\""\n\tkey_mgmt=NONE\n}" > /etc/wpa_supplicant/wpa_supplicant.conf
-	wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i $INT -B
+
+	#Disabling NetworkManager to make sure we have full control of wireless interface
+	systemctl stop NetworkManager
+	
+	#Associating with AP
+	iwconfig $INT essid $TARGET_ESSID
+	echo iwconfig $INT ap $TARGET_MAC
+	echo iwconfig $INT enc off
+	echo ifconfig $INT up
+	echo dhclient $INT
+
+
 fi
 
 
