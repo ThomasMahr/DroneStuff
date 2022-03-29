@@ -35,7 +35,6 @@ process.stdin.on('keypress', (chunk, key) => {
                 process.exit();
 	else if (key && key.name == "up"){
 		client.takeoff();
-		client.stop();
 	}
 	else if (key && key.name == "down"){
 		client.land();
@@ -75,5 +74,5 @@ process.stdin.on('keypress', (chunk, key) => {
 		client.right(.2);
 	}
 
-	client.stop();
+	//client.stop();
 });
