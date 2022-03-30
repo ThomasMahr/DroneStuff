@@ -24,20 +24,25 @@ exec("cat /home/kali/DroneStuff/textStuff/dronePic.txt | lolcat -f ; figlet '\t\
 
 
 readline.emitKeypressEvents(process.stdin);
-
+var flag = false;
 
 if (process.stdin.isTTY)
         process.stdin.setRawMode(true);
 console.log("q = quit\nUp arrow = takeoff\nDown arrow = land\nLeft arrow = FTRIM (do not use during flight)\nRight arrow = magnetometer callibration (used in air)\nSpace = hover");
 process.stdin.on('keypress', (chunk, key) => {
+console.log(chunk);
+	
+flag = false;
 
         if (key && key.name == "q")
                 process.exit();
 	else if (key && key.name == "up"){
 		client.takeoff();
+		flag=true;
 	}
 	else if (key && key.name == "down"){
 		client.land();
+		flag=true;
 	}
 	else if (key && key.name == "space"){
 		client.stop();
@@ -62,17 +67,25 @@ process.stdin.on('keypress', (chunk, key) => {
 		client.counterClockwise(.2);
 	}
 /*----------------------right hand control--------------------------*/
-	if (key && key.name == "i")
+	if (key && key.name == "i"){
 		client.front(.2);
+		flag=true;
+	}
 	else if (key && key.name == "k"){
 		client.back(.2);
+		flag=true;
 	}
 	else if (key && key.name == "j"){
 		client.left(.2);
+		flag=true;
 	}
 	else if (key && key.name == "l"){
 		client.right(.2);
+		flag=true;
 	}
+	
+
+
 
 	//client.stop();
 });
