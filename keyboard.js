@@ -30,7 +30,6 @@ if (process.stdin.isTTY)
         process.stdin.setRawMode(true);
 console.log("q = quit\nUp arrow = takeoff\nDown arrow = land\nLeft arrow = FTRIM (do not use during flight)\nRight arrow = magnetometer callibration (used in air)\nSpace = hover");
 process.stdin.on('keypress', (chunk, key) => {
-console.log(chunk);
 	
 flag = false;
 
@@ -55,16 +54,16 @@ flag = false;
 	}
 /*----------------------left hand control--------------------------*/
 	if (key && key.name == "w")
-		client.up(.2);
+		client.up(.6);
 	else if (key && key.name == "s"){
-		client.down(.2);
+		client.down(.6);
 	}
 	else if (key && key.name == "d"){
-		client.clockwise(.2);
+		client.clockwise(.7);
 
 	}
 	else if (key && key.name == "a"){
-		client.counterClockwise(.2);
+		client.counterClockwise(.7);
 	}
 /*----------------------right hand control--------------------------*/
 	if (key && key.name == "i"){
