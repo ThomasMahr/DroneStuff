@@ -7,7 +7,6 @@ NPM_READLINE=0
 NPM_FS=0
 PYTHON=0
 PYTHON_TKINTER=0
-WPA_SUP=0
 
 BAD='\033[1;31m'
 GOOD='\033[1;32m'
@@ -84,15 +83,4 @@ then
 	echo -e "${GOOD}tkinter python module installed${NO_COLOR}"
 else
 	echo -e "${BAD}run 'pip3 install tk'${NO_COLOR}"
-fi
-
-wpa_supplicant -v > /dev/null 2>&1
-RC=$?
-if [ $RC -eq 0 ]
-then
-	WPA_SUP=1
-	echo -e "${GOOD}wpa_supplicant installed${NO_COLOR}"
-else
-	echo -e "${BAD}run 'apt install wpa_supplicant'${NO_COLOR}"
-	exit
 fi

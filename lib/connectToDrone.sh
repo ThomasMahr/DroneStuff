@@ -11,7 +11,7 @@ if [ `cat .ints.txt | cut -d ":" -f 2` = "None" ]
 then
 	exit
 else
-	INT=`cat .ints.txt | cut -d ":" -f 2 | sed -e 's/^[[:space:]]*//'`
+	INT=`cat .ints.txt | cut -d " " -f 2 `
 	COUNT=`wc -l .dronesFound.txt | cut -d ' ' -f 1`
 	NUM_DRONES=`expr $COUNT / 3`
 	LIST_NUM=1
@@ -39,15 +39,4 @@ else
 	iwconfig $INT ap $TARGET_MAC
 	iwconfig $INT enc off
 	dhclient $INT
-
 fi
-
-
-
-#echo "Associating with AP over wlan1"
-#wpa_supplicant -c /etc/wpa_supplicant/wpa_supplicant.conf -i wlan1 -B
-
-#echo "Getting IP"
-#dhclient wlan1
-
-#./intsDown.sh
