@@ -36,11 +36,9 @@ else
 	
 	#Associating with AP
 	iwconfig $INT essid $TARGET_ESSID
-	echo iwconfig $INT ap $TARGET_MAC
-	echo iwconfig $INT enc off
-	echo ifconfig $INT up
-	echo dhclient $INT
-
+	iwconfig $INT ap $TARGET_MAC
+	iwconfig $INT enc off
+	dhclient $INT
 
 fi
 

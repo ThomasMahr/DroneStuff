@@ -26,13 +26,19 @@ else
 	then
 		for drone in $DRONE_APS
 		do
-			echo -e "${YELLOW}essid: $drone${NO_COLOR}" | sed -e 's/^[[:space:]]*//' >> .dronesFound.txt
-			echo -e "\t${GREEN}chanel: `cat test-01.csv | grep -E $drone | cut -d , -f 4 | sed -e 's/^[[:space:]]*//'`${NO_COLOR}" >> .dronesFound.txt
-			echo -e "\t${GREEN}bssid: `cat test-01.csv | grep -E $drone | cut -d , -f 1 | sed -e 's/^[[:space:]]*//'`${NO_COLOR}" >> .dronesFound.txt
+			NAME=`echo  $drone | sed -e 's/^[[:space:]]*//'`
+			CHANNEL=`cat test-01.csv | grep -E $drone | cut -d , -f 4 | sed -e 's/^[[:space:]]*//'`
+			MAC=`cat test-01.csv | grep -E $drone | cut -d , -f 1 | sed -e 's/^[[:space:]]*//'`
+			echo -e "${YELLOW}essid: $NAME${NO_COLOR}"
+			echo -e "\t${GREEN}channel: $CHANNEL${NO_COLOR}"
+			echo -e "\t${GREEN}bssid: $MAC${NO_COLOR}"
+			echo -e "essid: $NAME" >> .dronesFound.txt
+			echo -e "channel: $CHANNEL" >> .dronesFound.txt
+			echo -e "bssid: $MAC" >> .dronesFound.txt
 		done
+	else
+		echo -e "${RED}No drones found in the area${NO_COLOR}"
 	fi
-
-	cat .dronesFound.txt
 
 	rm test-01.csv
 	./toManagedMode.sh
