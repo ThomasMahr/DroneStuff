@@ -34,9 +34,14 @@ else
 	#Disabling NetworkManager to make sure we have full control of wireless interface
 	systemctl stop NetworkManager
 	
+	#Clearing any old connections
+	iwconfig $INT essid any
+	dhclient -r $INT
+
 	#Associating with AP
 	iwconfig $INT essid $TARGET_ESSID
 	iwconfig $INT ap $TARGET_MAC
 	iwconfig $INT enc off
+	sleep 2
 	dhclient $INT
 fi
