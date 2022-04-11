@@ -17,8 +17,9 @@ else
 	RPID=$!
 	sleep 15
 	kill $RPID
-
-	DRONE_APS=`cat test-01.csv | grep -E '90:3A:E6|00:12:1C|90:03:B7|A0:14:3D|00:26:7E' | cut -d , -f 14`
+	
+	STATION_LINE=`grep -n Station test-01.csv | cut -d ':' -f 1`
+	DRONE_APS=`head -n $STATION_LINE test-01.csv | grep -E '90:3A:E6|00:12:1C|90:03:B7|A0:14:3D|00:26:7E' | cut -d , -f 14`
 
 	rm .dronesFound.txt
 
@@ -29,12 +30,16 @@ else
 			NAME=`echo  $drone | sed -e 's/^[[:space:]]*//'`
 			CHANNEL=`cat test-01.csv | grep -E $drone | cut -d , -f 4 | sed -e 's/^[[:space:]]*//'`
 			MAC=`cat test-01.csv | grep -E $drone | cut -d , -f 1 | sed -e 's/^[[:space:]]*//'`
-			echo -e "${YELLOW}essid: $NAME${NO_COLOR}"
-			echo -e "\t${GREEN}channel: $CHANNEL${NO_COLOR}"
-			echo -e "\t${GREEN}bssid: $MAC${NO_COLOR}"
+			CLIENT_MAC=`tail -n +$STATION_LINE test-01.csv | grep $MAC | cut -d ',' -f 1`
+
+			echo -e "${YELLOW}Essid: $NAME${NO_COLOR}"
+			echo -e "\t${GREEN}Channel: $CHANNEL${NO_COLOR}"
+			echo -e "\t${GREEN}Bssid: $MAC${NO_COLOR}"
+			echo -e "\t${GREEN}Client: $CLIENT_MAC${NO_COLOR}"
 			echo -e "essid: $NAME" >> .dronesFound.txt
 			echo -e "channel: $CHANNEL" >> .dronesFound.txt
 			echo -e "bssid: $MAC" >> .dronesFound.txt
+			echo -e "client: $CLIENT_MAC" >> .dronesFound.txt
 		done
 	else
 		echo -e "${RED}No drones found in the area${NO_COLOR}"

@@ -1,3 +1,4 @@
 essid: ardrone2_v2.4.8
-channel: 6
+channel: 1
 bssid: A0:14:3D:A7:22:35
+client: 22:79:01:04:FB:F0

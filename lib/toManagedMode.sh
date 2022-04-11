@@ -27,6 +27,11 @@ else
 	echo "Placing into managed mode"
 	airmon-ng stop $MON_INT &> /dev/null
 	sleep 2
+
+	#ifconfig `iwconfig | grep "wlan" | tail -n 1 | cut -d ' ' -f 1` up
+	ifconfig wlan0 up #FIX THIS
+	ifconfig wlan1 up #FIX THIS
+
 	INT=`ifconfig | grep "wlan" | cut -d ":" -f 1 | head -n 1`
 	echo -e "Managed interface: ${GOOD}$INT${NO_COLOR}"
 	echo "Man: $INT" > .ints.txt
