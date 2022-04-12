@@ -1,6 +1,6 @@
 // Run this to receive a png image stream from your drone.
 
-var arDrone = require('..');
+var arDrone = require('ar-drone');
 var http    = require('http');
 
 console.log('Connecting png stream ...');

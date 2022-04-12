@@ -23,7 +23,7 @@ else
 
 	rm .dronesFound.txt
 
-	if [ $DRONE_APS != "" ]
+	if [ "$DRONE_APS" != "" ]
 	then
 		for drone in $DRONE_APS
 		do
