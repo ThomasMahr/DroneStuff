@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Purpose: The purpose of this script is to place one of or the only network adapter
+#present into monitor mode. This does not do it over a specific channel and will be
+#open to all wifi channels for scanning. For a specific channel, use channelMonitorMode.sh
+
+#Syntax: sudo ./toMonitorMode.sh
+
 COUNT=`ifconfig | grep "wlan" | cut -d ":" -f 1 | wc -l`
 STATUS=`cat .ints.txt | cut -d ":" -f 1`
 

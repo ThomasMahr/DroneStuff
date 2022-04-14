@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#Purpose: The goal of this is to script is to place the network adapter currently in monitor
+#mode into managed mode. This is done to associate with an access point
+
+#Syntax: sudo ./toManagedMode.sh
+
 COUNT=`ifconfig | grep "wlan" | cut -d ":" -f 1 | wc -l`
 
 BAD='\033[1;31m'

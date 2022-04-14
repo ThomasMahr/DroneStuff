@@ -1,5 +1,11 @@
 #!/bin/bash
 
+#Purpose: This script will place the network adatper into monitor mode
+#over a specified channel for deauth purposes. The status of the network
+#adapter is updated in the .ints.txt file
+
+#Syntax: sudo ./channelMonitorMode.sh
+
 #1st command line argument is the channel to switch to
 
 COUNT=`ifconfig | grep "wlan" | cut -d ":" -f 1 | wc -l`

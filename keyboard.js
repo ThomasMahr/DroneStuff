@@ -1,3 +1,14 @@
+/* Purpose: Allows the user to have full flight control of the drone.
+ *
+ * This is to be run AFTER the user selects flight control in the
+ * connectToDrone.sh script in lib/
+ *
+ * End with [ctrl] c after the drone is landed
+ *
+ * syntax: sudo node keyboard.js
+ * 
+ */
+
 var arDrone = require('ar-drone');
 var client = arDrone.createClient();
 
@@ -9,7 +20,7 @@ var readline = require('readline');
 const { exec } = require("child_process");
 
 
-exec("cat /home/kali/DroneStuff/textStuff/dronePic.txt | lolcat -f ; figlet '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDRONEZ!!!' | lolcat -f", (error, stdout, stderr) => {
+exec("cat textStuff/dronePic.txt | lolcat -f ; figlet '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tDRONEZ!!!' | lolcat -f", (error, stdout, stderr) => {
     if (error) {
         console.log(`error: ${error.message}`);
         return;

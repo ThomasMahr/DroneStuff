@@ -1,5 +1,10 @@
 #!/bin/bash
 
+#Purpose: The purpose of thsi file is to make sure the necessary software is
+#installed on the system for drone control
+
+#Syntax: sudo ./checkInstalled.sh
+
 NODE=0
 NPM=0
 NPM_AR_DRONE=0

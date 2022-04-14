@@ -7,7 +7,7 @@ Enter 'help' for a list of built-in commands.
 # cat /data/config.ini
 
 [general]
-flying_time                    = 1780
+flying_time                    = 1781
 num_version_config             = 1
 num_version_mb                 = 34
 num_version_soft               = 2.4.8

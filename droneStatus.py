@@ -1,5 +1,12 @@
 #!/bin/python3
 
+"""
+This program will return the navigational data from the current connected drone.
+This must be run after connecting to a drone using connectToDrone.sh in lib/
+
+Syntax: sudo ./droneStatus.py
+"""
+
 import sys
 import os
 import time

@@ -1,4 +1,10 @@
 #!/bin/zsh
+#
+#
+#THIS IS AN EXPERIMENTAL FILE. This was done as a proof-of-concept early on in the project.
+#This file is re-made into the entire project but is left here for documentation purposes
+#
+#
 airmon-ng start wlan0 >>/dev/null #puts into monitor mode
 sleep 2
 rm test* #removes files with test

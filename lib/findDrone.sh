@@ -1,5 +1,12 @@
 #!/bin/bash
 
+#Purpose: The purpose of this file is to find all of the Parrot AR Drones in the area. This
+#is done by filtering all of the routers in the area by mac address because Parrot owns the
+#MAC addess blocks seen in a grep in the file. The data about the essid, mac, channel, and
+#client for each drone is written to .dronesFound.txt.
+
+#Syntax: sudo ./findDrone.sh
+
 RED='\033[1;31m'
 YELLOW='\033[1;33m'
 GREEN='\033[1;32m'

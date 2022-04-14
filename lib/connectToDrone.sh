@@ -1,5 +1,21 @@
 #!/bin/bash
 
+#Purpose: The purpose of this script is to connect to the drone the user selects. The
+#drone essid's are pulled from the output of the findDrones.sh file which must be run
+#prior to connecting to a drone. The option to select flight control splits the possible
+#attacks between attacks that the client would be able to detect and attacks the client
+#would not be able to detect. Once flight control is selected, the client will know
+#the drone is being attacked. Without flight contorl, they will not know their drone
+#is being attacked.
+
+#Bugs: A known bug are if there was not a client connected to the drone with the findDrone.sh
+#script was run. This is a problem because with flight control, it will deauth the client
+#saved in .dronesFound.txt and if there is not a client, it will error on the aireplay
+#command. Therefore, a client must be connected on the inital scan OR write a check to see
+#if a client is in the file after flight control is selected before the aireplay command.
+
+#Syntax: sudo ./connnectToDrone.sh
+
 RED='\033[1;31m'
 YELLOW='\033[1;33m'
 GREEN='\033[1;32m'
